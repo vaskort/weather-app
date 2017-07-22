@@ -7,11 +7,15 @@ class DataLayout extends Component {
         previousDay = '',
         array = [],
         helperArray = [],
+        weatherIconUrl = 'http://openweathermap.org/img/w/',
         data = this.props.data.getIn(['weatherData', 'list']).map((item, index) => {
           // As a first step here instead of splitting the date and do something like the below I will use moment js
           // let day = item.get('dt_txt').split(' ')[0].split('-')[2]; -> this would give me the day of the month i.e '22'
           // let day = ;
-          let day = moment.unix(item.get('dt')).format('dddd');
+          let day = moment.unix(item.get('dt')).format('dddd'),
+              time = moment.unix(item.get('dt')).format('HH:mm'),
+              temperature = item.getIn(['main', 'temp_max']),
+              ico = item.getIn(['weather', 0, 'icon']);
           // add a td with the name of day if the day is diff than the previous one
           if (day !== previousDay) {
             previousDay = day;
@@ -27,10 +31,16 @@ class DataLayout extends Component {
               </td>
             )
           }
-          // in each iteration we should push the temperature no matter what
+          // in each iteration we should push a td with the temperature no matter what
           helperArray.push(
-            <td key={index}>
-              {item.getIn(['main', 'temp'])}
+            <td key={index} className="text-center">
+              <b><span className="time">{time}</span></b>
+              <span className="temp">
+                {temperature}&#8451;
+              </span>
+              <span className="ico">
+                <img src={weatherIconUrl + ico + '.png'} alt=""/>
+              </span>
             </td>
           )
         });
