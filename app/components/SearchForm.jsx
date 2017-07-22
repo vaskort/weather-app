@@ -24,10 +24,10 @@ class SearchForm extends Component {
         <form onSubmit={this.handleForm}>
           <div className="grid-x grid-margin-x">
             <div className="small-12 medium-8 large-4 large-offset-4 cell">
-              <input type="text" placeholder="Name of city" ref="city" defaultValue="London"/>
+              <input type="text" placeholder="Name of city" ref="city" defaultValue="London" disabled={this.props.weatherData.get('fetching')}/>
             </div>
             <div className="small-12 medium-4 large-4 large-offset-4 cell">
-              <button type="submit" className="button expanded">Search</button>
+              <button type="submit" className="button expanded" disabled={this.props.weatherData.get('fetching')}>Search</button>
             </div>
           </div>
         </form>
