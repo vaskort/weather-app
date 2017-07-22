@@ -10,8 +10,10 @@ require('style-loader!css-loader!sass-loader!appStyles');
 
 
 ReactDOM.render(
-      <div className="mainContainer">
-        <Main />
-      </div>,
+      <Provider store={store}>
+        <div className="mainContainer">
+          <Main />
+        </div>
+      </Provider>,
   document.getElementById('app')
 );

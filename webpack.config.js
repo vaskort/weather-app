@@ -13,6 +13,7 @@ module.exports = {
       foundationStyles: path.resolve(__dirname, './node_modules/foundation-sites/dist/css/foundation.min.css'), 
       Main: path.resolve(__dirname, './app/components/Main.jsx'),
       SearchForm: path.resolve(__dirname, './app/components/SearchForm.jsx'),
+      weatherActions: path.resolve(__dirname, './app/actions/weatherActions.js'),
     },
     extensions: ['.js', '.jsx'],
   },
