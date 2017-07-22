@@ -1,8 +1,39 @@
+@import 'variables';
+
 table {
   .time {
     display: block;
   }
   .temp {
     display: block;
+  }
+  tr {
+    position: relative;
+    @include maxTablet {
+      float: left;
+      width: 100%;
+      // display: flex;
+      // align-items: center;
+    }
+    td {
+      @include maxTablet {
+        display: block;
+        padding:0.5em;
+        float: left;
+        width: 33.333%;
+        &:first-child {
+          float: left;
+          width: 100%;
+          font-weight: bold;
+          text-align: center;
+        }
+      }
+      @include maxSmallPhone {
+        display: block;
+        padding:0.5em;
+        float: left;
+        width: 50%;
+      }
+    }
   }
 }
