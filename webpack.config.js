@@ -7,6 +7,15 @@ module.exports = {
     path: __dirname,
     filename: './public/bundle.js'
   },
+  resolve: {
+    alias: {
+      appStyles: path.resolve(__dirname, './app/styles/app.scss'),
+      foundationStyles: path.resolve(__dirname, './node_modules/foundation-sites/dist/css/foundation.min.css'), 
+      Main: path.resolve(__dirname, './app/components/Main.jsx'),
+      SearchForm: path.resolve(__dirname, './app/components/SearchForm.jsx'),
+    },
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     loaders: [
       {
