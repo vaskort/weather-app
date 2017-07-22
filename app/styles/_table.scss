@@ -9,23 +9,40 @@ table {
   }
   tr {
     position: relative;
+    float: left;
+    width:100%;
     @include maxTablet {
       float: left;
       width: 100%;
-      // display: flex;
-      // align-items: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+              flex-direction: row;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
     }
     td {
+      float: left;
+      width: 11.1111%;
       @include maxTablet {
         display: block;
         padding:0.5em;
         float: left;
-        width: 33.333%;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 0 33.333%;
+        flex: 1 0 33.333%;
         &:first-child {
+          font-size: 1.3em;
           float: left;
           width: 100%;
           font-weight: bold;
           text-align: center;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
         }
       }
       @include maxSmallPhone {
@@ -33,6 +50,9 @@ table {
         padding:0.5em;
         float: left;
         width: 50%;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 0 50%;
+        flex: 1 0 50%;
       }
     }
   }

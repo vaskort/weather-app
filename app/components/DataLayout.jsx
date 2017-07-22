@@ -21,19 +21,19 @@ class DataLayout extends Component {
             previousDay = day;
             // take all the tds wrap them with a tr and push them to the final array that we will render
             // the simple if below is not to make this action at the iteration
-            if (previousDay.length > 0) {
+            if (helperArray.length > 0) {
               array.push(<tr key={index}>{helperArray}</tr>);
               helperArray = [];
             }
             helperArray.push(
               <td key={item.get('dt')}>
-                {day}
+                <b>{day}</b>
               </td>
             )
           }
           // in each iteration we should push a td with the temperature no matter what
           helperArray.push(
-            <td key={index} className="text-center">
+            <td key={index}>
               <b><span className="time">{time}</span></b>
               <span className="temp">
                 {temperature}&#8451;
@@ -48,7 +48,7 @@ class DataLayout extends Component {
       <div>
         <div className="grid-container">
           <h2 className="text-center">Weather for {cityName}</h2>
-          <table>
+          <table className="text-center">
             <tbody>
               { array }
             </tbody>
