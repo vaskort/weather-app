@@ -1,10 +1,15 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "7.4.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack & node server.js",
+    "heroku-postbuild": "webpack"
   },
   "author": "Vasilis Kortsimelidis",
   "license": "ISC",
