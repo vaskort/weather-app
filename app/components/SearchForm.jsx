@@ -6,7 +6,7 @@ import { getData, setFetching } from "weatherActions";
 class SearchForm extends Component {
   handleForm = e => {
     e.preventDefault();
-    // setFetching will actually disable the form
+    // setFetching will actually disable the form while a response comes back
     this.props.setFetching(true);
     this.props
       .getData(this.refs.city.value)
