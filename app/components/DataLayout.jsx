@@ -7,7 +7,9 @@ class DataLayout extends Component {
       previousDay = "",
       array = [],
       helperArray = [],
+      length = this.props.data.getIn(["weatherData", "list"]).size,
       weatherIconUrl = "http://openweathermap.org/img/w/",
+      // it become a little big this iteration - if I had time I would move it to a separate component
       data = this.props.data
         .getIn(["weatherData", "list"])
         .map((item, index) => {
@@ -29,8 +31,10 @@ class DataLayout extends Component {
                   {helperArray}
                 </tr>
               );
+              // empty the helper array so at the next push we don't have duplicate items
               helperArray = [];
             }
+            // since the day is different than the previous one push the day name
             helperArray.push(
               <td key={item.get("dt")}>
                 <b>
@@ -39,7 +43,7 @@ class DataLayout extends Component {
               </td>
             );
           }
-          // in each iteration we should push a td with the temperature no matter what
+          // in each iteration we should push a td with the temperature, icon and time no matter what
           helperArray.push(
             <td key={index}>
               <b>
@@ -56,6 +60,8 @@ class DataLayout extends Component {
             </td>
           );
         });
+        // after the iteration do one last push to add the last data
+        array.push(<tr>{helperArray}</tr>);
     return (
       <div>
         <div className="grid-container">
