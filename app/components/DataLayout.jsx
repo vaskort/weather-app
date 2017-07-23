@@ -61,7 +61,7 @@ class DataLayout extends Component {
           );
         });
         // after the iteration do one last push to add the last data
-        array.push(<tr>{helperArray}</tr>);
+        array.push(<tr key={length}>{helperArray}</tr>);
     return (
       <div>
         <div className="grid-container">
