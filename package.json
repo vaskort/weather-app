@@ -14,7 +14,7 @@
   "author": "Vasilis Kortsimelidis",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.21.1",
     "classnames": "^2.2.5",
     "express": "^4.15.3",
     "foundation-sites": "^6.4.1",
